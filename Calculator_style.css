@@ -1,0 +1,109 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d1117; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.calculator {
+    background-color: #161b22; 
+    border-radius: 1.5rem; 
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    max-width: 320px; 
+    border: 1px solid #30363d;
+}
+
+.calculator-display {
+    background-color: #010409; 
+    color: #ffffff;
+    font-size: 2.8rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem; 
+    margin-bottom: 1rem;
+    text-align: right;
+    border: 1px solid #30363d; 
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow-x: auto; 
+    white-space: nowrap;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.75rem; 
+}
+
+.btn {
+    background-color: #21262d; 
+    color: #c9d1d9; 
+    font-size: 1.5rem; 
+    padding: 1rem;
+    border: none;
+    border-radius: 0.75rem; 
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.btn:hover {
+    background-color: #30363d; 
+    transform: translateY(-2px); 
+}
+
+.btn:active {
+    transform: translateY(0); 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.operator {
+    background-color: #1a7f37;
+    color: #ffffff;
+}
+
+.operator:hover {
+    background-color: #238636;
+}
+
+.equals {
+    background-color: #58a6ff; 
+    color: #ffffff;
+    grid-column: span 2; 
+}
+
+.equals:hover {
+    background-color: #79c0ff;
+}
+
+.clear { 
+    background-color: #f85149;
+    color: #ffffff;
+}
+
+.clear:hover {
+    background-color: #ff7b72;
+}
+
+@media (max-width: 400px) {
+    .calculator {
+        padding: 1rem;
+    }
+    .calculator-display {
+        font-size: 2.2rem;
+    }
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+    }
+    .calculator-buttons {
+        gap: 0.5rem;
+    }
+}

@@ -1,0 +1,171 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">   
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Personal Portfolio Website</title> 
+      <link rel="stylesheet" href="style.css">
+      <script src="https://kit.fontawesome.com/16b7e4a42e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+ <div id="header">
+      <div class="container">
+        <nav>
+        <a href="#" class="logo">A.C.C</a>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Web Developer</p>
+            <h1>Hi, I'm <span>Anushka</span> Chaudhari</h1>
+        </div>
+      </div>
+     
+ </div>
+ <!------------------------------about------------------------------>
+   <div id="about">
+    <div class="container">
+        <div class="row">
+        <div class="about-col-1" style="display: flex; justify-content: center; align-items: center; background-color: #262626; border-radius: 15px; height: 350px;">
+    <i class="fa-solid fa-user" style="font-size: 100px; color: #ff004f;"></i>
+    </div>
+    <div class="about-col-2">
+            <h1 class="sub-title">About me</h1>
+            <p> I'm Anushka Chaudhari, a passionate Front-End Web Developer with a keen eye for design and user experience. I specialize in crafting responsive and interactive web applications using HTML, CSS, JavaScript, always aiming to build solutions that are both beautiful and highly functional.</p>
+        <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('Experience')">Experience</p> 
+            <p class="tab-links" onclick="opentab('Education')">Education</p>
+        </div>
+        <div class="tab-contents active-tab" id="Skills">
+            <ul>
+             <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+             <li><span>Web Development</span><br>Web app Development</li>
+             
+            </ul>
+        </div>
+        <div class="tab-contents" id="Experience">
+            <ul>
+             <li><span>2025- Current</span><br>Web Developer Intern at CodSoft</li>
+             </ul>
+        </div>
+        <div class="tab-contents" id="Education">
+            <ul>
+             <li><span>2023-Current</span><br>B.Tech CSE from MIT ADT University, Pune.</li>
+             <li><span>Till 2022</span><br>Schooling from S.O.S </li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+   </div>
+   <!-- ------------------services--------------------------->
+<div id="services">
+<div class="container">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+        <div>
+            <i class="fa-solid fa-code"></i>
+       <h2>Web Design</h2>     
+       <p>Focus on creating visually stunning and user-friendly web interfaces that captivate your audience.</p>
+        <a href="#">Learn more</a> 
+    </div>
+    <div>
+        <i class="fa-solid fa-crop-alt"></i>
+        <h2>UI/UX Design</h2>     
+        <p> Crafting seamless and visually appealing user experiences through thoughtful front-end implementation.</p>
+         <a href="#">Learn more</a> 
+     </div>
+     <div>
+        <i class="fa-brands fa-app-store"></i>
+        <h2>App Design</h2>     
+        <p> Designing user-centric interfaces and experiences for various digital products, focusing on clarity, ease of use, and visual appeal across different platforms.</p>
+         <a href="#">Learn more</a> 
+     </div>
+    </div>
+</div>
+</div>
+<!------------portfolio------------->
+<div id="Portfolio">
+     <div class="container">
+       <h1 class="sub-title">My Work</h1>
+       <div class="work-list">
+       <div class="work">
+            <i class="fa-solid fa-photo-film"></i>
+        <h3>Social Media App</h3>
+        <p>Connects users globally to share moments, engage with communities, and discover trending content through a personalized feed.</p>
+        <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+        </div>
+        <div class="work">
+           <i class="fa-solid fa-music"></i>
+        <h3>Music App</h3>
+        <p>Offers on-demand streaming of millions of songs, personalized playlists, and curated stations for diverse musical tastes.</p>
+        <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+        </div>
+        <div class="work">
+            <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Online Shopping App</h3>
+        <p>Provides a seamless e-commerce experience, allowing users to browse, purchase and track a wide range of products from various vendors.</p>
+        <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+        </div>
+       </div>
+       <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!---------contact------------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>example@contact.com</p>
+                <p><i class="fa-solid fa-phone"></i>1234567890</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="" class="btn btn2">Download Resume</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+<P>Copyright © Anushka. Made by Anushka Chaudhari</P>
+    </div>
+</div>
+
+
+   <script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+   </script>
+
+
+
+    </body>
+</html>

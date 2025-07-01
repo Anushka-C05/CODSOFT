@@ -1,0 +1,258 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernweh Adventures - Your Next Journey Awaits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-background {
+            background-image: url('https://placehold.co/4f46e5/ffffff'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .destination-card img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+        .btn-secondary:hover {
+            background-color: #0d9488;
+        }
+
+        .hamburger-icon.open {
+            transform: rotate(90deg);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-fixed bg-transparent py-4 md:py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-indigo-700 tracking-tight">Fernweh</a>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl hamburger-icon transition-transform duration-300"></i>
+            </button>
+
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 items-center">
+                <a href="#hero" class="text-lg hover:text-indigo-600 px-3 py-2 rounded-lg transition-colors">Home</a>
+                <a href="#destinations" class="text-lg hover:text-indigo-600 px-3 py-2 rounded-lg transition-colors">Destinations</a>
+                <a href="#features" class="text-lg hover:text-indigo-600 px-3 py-2 rounded-lg transition-colors">Why Choose Us</a>
+                <a href="#contact" class="text-lg hover:text-indigo-600 px-3 py-2 rounded-lg transition-colors">Contact</a>
+                <a href="#booking" class="btn btn-primary bg-indigo-600 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-lg">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-background relative h-screen flex items-center justify-center text-center">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="relative z-10 p-4 sm:p-8 md:p-12 max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-6 text-shadow">
+                    Your Next Adventure Awaits.
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-100 mb-10 text-shadow">
+                    Discover breathtaking landscapes, vibrant cultures, and unforgettable experiences.
+                    We craft journeys tailored just for you.
+                </p>
+                <a href="#destinations" class="btn btn-primary bg-indigo-600 text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl hover:bg-indigo-700">
+                    Explore Destinations
+                </a>
+            </div>
+        </section>
+
+        <section id="destinations" class="py-16 md:py-24 bg-gray-100 text-gray-900">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-12">Popular Destinations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="destination-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/600x400/e0f2f7/264653?text=Mountain+Trek" alt="Mountain Trek" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Mountain Treks</h3>
+                            <p class="text-gray-600 mb-4">Conquer majestic peaks and discover serene valleys. Perfect for adventure seekers.</p>
+                            <a href="#" class="btn btn-secondary bg-teal-600 text-white px-5 py-2 rounded-full text-base font-medium">View Packages</a>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/600x400/e0f2f7/264653?text=Beach+Paradise" alt="Beach Paradise" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Beach Paradise</h3>
+                            <p class="text-gray-600 mb-4">Relax on pristine sands and dive into crystal-clear waters. Ultimate relaxation awaits.</p>
+                            <a href="#" class="btn btn-secondary bg-teal-600 text-white px-5 py-2 rounded-full text-base font-medium">View Packages</a>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/600x400/e0f2f7/264653?text=City+Exploration" alt="City Exploration" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">City Explorations</h3>
+                            <p class="text-gray-600 mb-4">Immerse yourself in bustling urban life and iconic landmarks. Culture and excitement.</p>
+                            <a href="#" class="btn btn-secondary bg-teal-600 text-white px-5 py-2 rounded-full text-base font-medium">View Packages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-16 md:py-24 bg-gray-50 text-gray-900">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-12">Why Choose Us?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-star text-4xl text-yellow-500 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Expert Guides</h3>
+                        <p class="text-gray-600">Our knowledgeable guides ensure a safe, informative, and truly immersive experience.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-headset text-4xl text-blue-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">24/7 Support</h3>
+                        <p class="text-gray-600">Dedicated support team available around the clock for any needs or emergencies.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-calendar-alt text-4xl text-green-600 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Flexible Booking</h3>
+                        <p class="text-gray-600">Easy changes, cancellations, and custom itineraries to suit your evolving plans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="py-16 md:py-24 bg-blue-100 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Ready for Your Next Journey?</h2>
+                <p class="text-lg sm:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
+                    Let us craft the perfect adventure tailored to your dreams and preferences.
+                    Start planning your unforgettable trip today!
+                </p>
+                <a href="#contact" class="btn btn-primary bg-indigo-600 text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl hover:bg-indigo-700">
+                    Get a Free Quote
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-gray-200 py-12 text-gray-800">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Fernweh</h3>
+                <p class="text-gray-600 mb-2">Crafting unforgettable adventures worldwide.</p>
+                <p class="text-gray-600">Since 2020</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h3>
+                <p class="text-gray-600 mb-2"><i class="fas fa-envelope mr-2"></i> info@fernweh.com</p>
+                <p class="text-gray-600 mb-2"><i class="fas fa-phone mr-2"></i> 1234567890</p>
+                <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i> 123 Adventure Lane, Travel City</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Follow Us</h3>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-indigo-700 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-700 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-700 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-700 transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-sm mt-10">
+            &copy; 2024 Fernweh Adventures. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mainNav = document.getElementById('main-nav');
+            const hamburgerIcon = mobileMenuButton.querySelector('.hamburger-icon');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mainNav.classList.toggle('hidden');
+                mainNav.classList.toggle('flex');
+                mainNav.classList.toggle('flex-col');
+                mainNav.classList.toggle('absolute');
+                mainNav.classList.toggle('top-16');
+                mainNav.classList.toggle('left-0');
+                mainNav.classList.toggle('w-full');
+                mainNav.classList.toggle('bg-white');
+                mainNav.classList.toggle('p-4');
+                mainNav.classList.toggle('shadow-lg');
+                mainNav.classList.toggle('items-center');
+                mainNav.classList.toggle('space-y-4');
+                mainNav.classList.toggle('md:relative');
+                mainNav.classList.toggle('md:flex-row');
+                mainNav.classList.toggle('md:space-x-8');
+                mainNav.classList.toggle('md:p-0');
+                mainNav.classList.toggle('md:shadow-none');
+                mainNav.classList.toggle('md:bg-transparent');
+                
+                hamburgerIcon.classList.toggle('open');
+            });
+
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) {
+                        mainNav.classList.add('hidden');
+                        mainNav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'w-full', 'bg-white', 'p-4', 'shadow-lg', 'items-center', 'space-y-4');
+                        hamburgerIcon.classList.remove('open');
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

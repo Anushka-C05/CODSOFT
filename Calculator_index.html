@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .calculator {
+            background-color: #161b22; 
+            border-radius: 1.5rem; 
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 320px; 
+            border: 1px solid #30363d; 
+        }
+
+        .calculator-display {
+            background-color: #010409;
+            color: #ffffff;
+            font-size: 2.8rem;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem; 
+            margin-bottom: 1rem;
+            text-align: right;
+            border: 1px solid #30363d;
+            width: 100%; 
+            box-sizing: border-box; 
+            overflow-x: auto;
+            white-space: nowrap; 
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem; 
+        }
+
+        .btn {
+            background-color: #21262d; 
+            color: #c9d1d9; 
+            font-size: 1.5rem; 
+            padding: 1rem;
+            border: none;
+            border-radius: 0.75rem; 
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+        }
+
+        .btn:hover {
+            background-color: #30363d; 
+            transform: translateY(-2px); 
+        }
+
+        .btn:active {
+            transform: translateY(0); 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .operator {
+            background-color: #1a7f37; 
+            color: #ffffff;
+        }
+
+        .operator:hover {
+            background-color: #238636;
+        }
+
+        .equals {
+            background-color: #58a6ff; 
+            color: #ffffff;
+            grid-column: span 2; 
+        }
+
+        .equals:hover {
+            background-color: #79c0ff;
+        }
+
+        .clear {
+            background-color: #f85149; 
+            color: #ffffff;
+        }
+
+        .clear:hover {
+            background-color: #ff7b72;
+        }
+
+        @media (max-width: 400px) {
+            .calculator {
+                padding: 1rem;
+            }
+            .calculator-display {
+                font-size: 2.2rem;
+            }
+            .btn {
+                font-size: 1.2rem;
+                padding: 0.75rem;
+            }
+            .calculator-buttons {
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+    <input type="text" class="calculator-display" value="0" readonly>
+        <div class="calculator-buttons">
+            <button class="btn clear" data-clear>C</button>
+            <button class="btn operator" data-operator="/">&divide;</button>
+            <button class="btn operator" data-operator="*">&times;</button>
+            <button class="btn" data-number>7</button>
+            <button class="btn" data-number>8</button>
+            <button class="btn" data-number>9</button>
+            <button class="btn operator" data-operator="-">-</button>
+            <button class="btn" data-number>4</button>
+            <button class="btn" data-number>5</button>
+            <button class="btn" data-number>6</button>
+            <button class="btn operator" data-operator="+">+</button>
+            <button class="btn" data-number>1</button>
+            <button class="btn" data-number>2</button>
+            <button class="btn" data-number>3</button>
+            <button class="btn" data-number>0</button>
+            <button class="btn" data-decimal>.</button>
+            <button class="btn equals" data-equals>=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.querySelector('.calculator-display');
+        const numberButtons = document.querySelectorAll('[data-number]');
+        const operatorButtons = document.querySelectorAll('[data-operator]');
+        const equalsButton = document.querySelector('[data-equals]');
+        const clearButton = document.querySelector('[data-clear]');
+        const decimalButton = document.querySelector('[data-decimal]');
+
+        let currentOperand = '';    
+        let previousOperand = '';   
+        let operation = undefined;  
+
+
+        function appendNumber(number) {
+            if (number === '0' && currentOperand === '0') return; 
+            currentOperand = currentOperand.toString() + number.toString();
+        }
+
+        function appendDecimal() {
+            if (currentOperand.includes('.')) return; 
+            if (currentOperand === '') { 
+                currentOperand = '0.';
+            } else {
+                currentOperand += '.';
+            }
+        }
+
+        function chooseOperation(selectedOperation) {
+            if (currentOperand === '') return; 
+            if (previousOperand !== '') {
+                calculate();
+            }
+            operation = selectedOperation;
+            previousOperand = currentOperand;
+            currentOperand = ''; 
+        }
+
+        function calculate() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+
+            if (isNaN(prev) || isNaN(current)) return;
+
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '*':
+                    computation = prev * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        computation = 'Error: Div by 0';
+                        break;
+                    }
+                    computation = prev / current;
+                    break;
+                default:
+                    return; 
+            }
+
+            
+            if (typeof computation === 'string' && computation.startsWith('Error')) {
+                currentOperand = computation;
+            } else {
+                
+                currentOperand = parseFloat(computation.toFixed(10)); 
+            }
+            operation = undefined;
+            previousOperand = '';
+        }
+        function clear() {
+            currentOperand = '0';
+            previousOperand = '';
+            operation = undefined;
+        }
+
+        function updateDisplay() {
+            display.value = currentOperand === '' ? previousOperand : currentOperand;
+            if (operation != null && currentOperand === '') {
+                display.value = '{getDisplayNumber(previousOperand)}{operation}';
+            } else {
+                display.value = getDisplayNumber(currentOperand);
+            }
+        }
+
+        function getDisplayNumber(number) {
+            if (number === 'Error: Div by 0') return number;
+
+            const stringNumber = number.toString();
+            const integerDigits = parseFloat(stringNumber.split('.')[0]);
+            const decimalDigits = stringNumber.split('.')[1];
+            let integerDisplay;
+
+            if (isNaN(integerDigits)) {
+                integerDisplay = '';
+            } else {
+                integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+            }
+
+            if (decimalDigits != null) {
+                return '{integerDisplay}{decimalDigits}';
+            } else {
+                return integerDisplay;
+            }
+        }
+
+        clear();
+        updateDisplay(); 
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                appendNumber(button.innerText);
+                updateDisplay();
+            });
+        });
+
+        operatorButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                chooseOperation(button.innerText);
+                updateDisplay();
+            });
+        });
+
+        equalsButton.addEventListener('click', button => {
+            calculate();
+            updateDisplay();
+        });
+
+        clearButton.addEventListener('click', button => {
+            clear();
+            updateDisplay();
+        });
+
+        decimalButton.addEventListener('click', () => {
+            appendDecimal();
+            updateDisplay();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9') {
+                appendNumber(e.key);
+                updateDisplay();
+            } else if (e.key === '.') {
+                appendDecimal();
+                updateDisplay();
+            } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+                chooseOperation(e.key);
+                updateDisplay();
+            } else if (e.key === 'Enter' || e.key === '=') {
+                calculate();
+                updateDisplay();
+            } else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+                clear();
+                updateDisplay();
+            } else if (e.key === 'Backspace'){
+                performBackspace();
+            }
+        });
+
+    </script>
+</body>
+</html>
